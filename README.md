@@ -1,5 +1,5 @@
 # PiPicoUSBSegaController
-This is a very simple project to take a Raspbery Pi Pico and turn it USB joystick adapter for a 3 or 6 Button Sega Genesis/Megadrive Controller with supporting Circuit Python code.
+This is a very simple project to take a Raspberry Pi Pico and turn it USB joystick adapter for a 3 or 6 Button Sega Genesis/Megadrive Controller with supporting Circuit Python code.
 
 Please note that the code requires the following libraries in addition to the base CircuitPython Install 
 * [Adafruit_CircuitPython_HID](https://github.com/adafruit/Adafruit_CircuitPython_HID)
