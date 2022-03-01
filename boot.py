@@ -1,4 +1,7 @@
 import usb_hid
+import board
+import digitalio
+import storage
 
 # This is only one example of a gamepad descriptor, and may not suit your needs.
 GAMEPAD_REPORT_DESCRIPTOR = bytes((
@@ -39,6 +42,15 @@ gamepad = usb_hid.Device(
     in_report_lengths=(3,),    # This gamepad sends 3 bytes in its report.
     out_report_lengths=(0,),   # It does not receive any reports.
 )
+
+# if Sega Controller C button is held down during boot (controller_c_start.value == False) then do not disable the USB drive mode
+
+controller_c_start = digitalio.DigitalInOut(board.GP19)
+controller_c_start.direction = digitalio.Direction.INPUT
+controller_c_start.pull = digitalio.Pull.UP
+
+if (controller_c_start.value):
+    storage.disable_usb_drive()
 
 usb_hid.enable(
     (usb_hid.Device.KEYBOARD,
